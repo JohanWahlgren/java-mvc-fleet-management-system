@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox spacing="10" style="-fx-padding: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!-- Description of Service Field -->
+        <VBox spacing="5">
+            <Label fx:id="labelDescriptionOfService" text="Description of service" />
+            <TextField fx:id="textFieldDescriptionOfService" prefHeight="26.0" prefWidth="175.0" />
+        </VBox>
+
+        <!-- Service Date Field -->
+        <VBox spacing="5">
+            <Label fx:id="labelServiceDate" text="Date" />
+            <DatePicker fx:id="datePickerServiceActivity" onAction="#handleDatePickerServiceActivityAction" />
+        </VBox>
+
+        <!-- Workshop Field -->
+        <VBox spacing="5">
+            <Label text="Workshop" />
+            <ComboBox fx:id="comboBoxWorkshop" prefHeight="26.0" prefWidth="175.0" promptText="Choose workshop" />
+        </VBox>
+
+        <!-- Spacer Region -->
+        <Region minHeight="20.0" /> <!-- Adjust minHeight as needed for spacing -->
+
+        <!-- Buttons -->
+        <HBox spacing="10">
+            <Button fx:id="buttonServiceActivityAccept" onAction="#handleButtonServiceActivityAcceptAction" text="Accept" />
+            <Button fx:id="buttonCancel" onAction="#handleButtonCancelAction" text="Cancel" />
+        </HBox>
+    </VBox>
+</AnchorPane>

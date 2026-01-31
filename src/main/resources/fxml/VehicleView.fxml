@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox spacing="10" style="-fx-padding: 10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!-- Vehicle Name Field -->
+        <VBox spacing="5">
+            <Label text="Name" />
+            <TextField fx:id="textFieldVehicleName" />
+        </VBox>
+
+        <!-- Vehicle Type Field -->
+        <VBox spacing="5">
+            <Label text="Type" />
+            <ComboBox fx:id="comboBoxVehicleType" />
+        </VBox>
+
+        <!-- Vehicle Capacity Field -->
+        <VBox spacing="5">
+            <Label text="Capacity" />
+            <TextField fx:id="textFieldVehicleCapacity" />
+        </VBox>
+
+        <!-- Vehicle Current Location Field -->
+        <VBox spacing="5">
+            <Label text="Current location" />
+            <TextField fx:id="textFieldVehicleCurrentLocation" />
+        </VBox>
+
+        <!-- Buttons -->
+        <HBox spacing="10">
+            <Button fx:id="buttonVehicleAdd" onAction="#handleButtonVehicleAcceptAction" text="Accept" />
+            <Button fx:id="buttonVehicleCancel" onAction="#handleButtonVehicleCancelAction" text="Cancel" />
+        </HBox>
+    </VBox>
+</AnchorPane>

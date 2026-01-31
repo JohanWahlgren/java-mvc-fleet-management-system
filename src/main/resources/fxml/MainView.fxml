@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javengers.controllers.MainViewController">
+    <VBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <!-- Menu Bar -->
+        <MenuBar>
+            <Menu text="Edit">
+                <items>
+                    <MenuItem fx:id="menuItemAddNewVehicle" onAction="#handleButtonAddVehicleAction" text="Add New Vehicle" />
+                    <MenuItem text="Delete Selected Vehicle"  onAction="#handleButtonRemoveSelectedVehicle"/>
+                    <SeparatorMenuItem />
+                    <MenuItem text="Add New Workshop"  fx:id="menutItemAddNewServiceWorkshop" onAction="#handleButtonAddServiceWorkshop"/>
+                    <MenuItem text="Delete Selected Workshop" onAction="#handleButtonRemoveSelectedServiceWorkshop"/>
+                    <SeparatorMenuItem />
+                    <MenuItem text="Total Cost of All Vehicles" onAction="#handleButtonCalculateTotalCostAction" />
+                    <MenuItem text="Average Cost for Vehicle Service" onAction="#handleAverageCostMenuItemAction" />
+                    <MenuItem text="See Most Expensive Workshop" onAction="#handleSeeMostExpensiveWorkshopMenuItemAction" />
+                    <MenuItem text="See Most Expensive Service Job" onAction="#handleSeeMostExpensiveServiceItemAction" />
+                </items>
+            </Menu>
+            <Menu text="Help">
+                <items>
+                    <MenuItem text="View Documentation" onAction="#handleDisplayDocumentationAction"/>
+                    <!-- Additional help options can be added here -->
+                </items>
+            </Menu>
+        </MenuBar>
+        <ImageView fx:id="appIcon" fitWidth="100" fitHeight="100" preserveRatio="true" />
+        <!-- Content Area -->
+        <SplitPane dividerPositions="0.3" VBox.vgrow="ALWAYS">
+            <items>
+                <!-- Left Side: VBox containing TabPane -->
+                <VBox spacing="10">
+                    <TabPane fx:id="vehicleDetailsTabs">
+                        <Tab text="Vehicles" closable="false">
+                            <TableView fx:id="vehicleTableView">
+                                <columns>
+                                    <TableColumn fx:id="vehicleNameColumn" text="Name" />
+                                    <TableColumn fx:id="vehicleTypeColumn" text="Type" />
+                                    <TableColumn fx:id="vehicleVinColumn" text="Vin" />
+                                    <TableColumn fx:id="vehicleAvailabilityColumn" text="Available" />
+                                </columns>
+                            </TableView>
+                        </Tab>
+                        <Tab text="Workshops" closable="false">
+                            <TableView fx:id="serviceWorkshopTableView">
+                                <columns>
+                                    <TableColumn fx:id="workshopNameColumn" minWidth="200" text="Name" />
+                                    <TableColumn fx:id="workshopTypeColumn" minWidth="100" text="Type" />
+                                    <TableColumn fx:id="workshopAddressColumn" minWidth="150" text="Address" />
+                                </columns>
+                            </TableView>
+                        </Tab>
+                    </TabPane>
+                </VBox>
+
+                <!-- Right Side: VBox containing TabPane -->
+                <VBox spacing="10">
+                    <TabPane fx:id="activitiesDetailsTabs">
+                        <Tab text="General Details" closable="false">
+                            <content>
+                                <GridPane fx:id="detailsGridPane" hgap="10" vgap="10">
+                                </GridPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Maintenance Schedule" closable="false">
+                            <TableView fx:id="maintenanceScheduleTableView">
+                                <columns>
+                                    <TableColumn fx:id="maintenanceActivityDescriptionColumn" text="Description" minWidth="200"/>
+                                    <TableColumn fx:id="maintenanceActivityDateColumn" text="Date" minWidth="100"/>
+                                    <TableColumn fx:id="maintenanceActivityServiceWorkshopColumn" text="Service Workshop" minWidth="150"/>
+                                </columns>
+                            </TableView>
+                        </Tab>
+                        <Tab text="Service History" closable="false">
+                            <TableView fx:id="serviceHistoryTableView">    
+                                <columns>
+                                    <TableColumn fx:id="serviceActivityDescriptionColumn" minWidth="200" text="Description" editable="true"/>
+                                    <TableColumn fx:id="serviceActivityDateColumn" minWidth="100" text="Date" />
+                                    <TableColumn fx:id="serviceActivityServiceWorkshopColumn" minWidth="150" text="Service Workshop" />
+                                    <TableColumn fx:id="serviceActivityCostColumn" minWidth="100" text="Cost of Service" />
+                                    <TableColumn fx:id="serviceActivityPartsReplacedColumn" minWidth="100" text="Parts Replaced" />
+                                </columns>
+                            </TableView>
+                        </Tab>
+                    </TabPane>
+                </VBox>
+            </items>
+        </SplitPane>
+    </VBox>
+</AnchorPane>
